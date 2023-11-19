@@ -19,7 +19,7 @@ class Player {
         const image = new Image()
         image.src = 'assests/spaceShip.png'
         image.onload = () => {
-            const scale = 0.15
+            const scale = 0.12
             this.image = image
             this.width = image.width * scale
             this. height = image.height * scale
@@ -103,7 +103,7 @@ class Invader {
         const image = new Image()
         image.src = 'assests/invader.png'
         image.onload = () => {
-            const scale = 0.10
+            const scale = 0.09       
             this.image = image
             this.width = image.width * scale
             this. height = image.height * scale
@@ -167,7 +167,7 @@ class Grid {
             this.invaders.push(
                 new Invader({
                 position: {
-                x: x * 60,
+                x: x * 50,
                 y : y * 50
             }
          })
@@ -219,19 +219,46 @@ function animate() {
 
         if(projectile.position.y + projectile.radius <= 0){
             setTimeout(() => {
-                projectile.splice(index, 1)
+                projectiles.splice(index,1)
             }, 0)
            
         } else {
             projectile.update()
         }
-        projectile.update()
     })
 
-    grids.forEach(grid => {
+    grids.forEach((grid) => {
         grid.update()
-        grid.invaders.forEach(invader => {
-            invader.update({ velocity: grid.velocity})
+        grid.invaders.forEach((invader, i) => {
+            invader.update({ velocity: grid.velocity })
+
+            projectiles.forEach((projectile, j) => {
+                if( 
+                projectile.position.y - projectile.radius <=
+                invader.position.y + invader.height &&
+                projectile.position.x + projectile.radius >=
+                invader.position.x &&
+                projectile.position.x - projectile.radius <= 
+                invader.position.x + invader.width &&
+                projectile.position.y + projectile.radius >= 
+                invader.position.y
+                ) {
+
+                  setTimeout(() => {
+                    const invaderFound = grid.invaders.find((invader2) => 
+                        invader2 === invader
+                    )
+                    const projectileFound = projectiles.find(
+                        (projectile2) => projectile2 === projectile)
+
+                    if(invaderFound && projectileFound){
+                    grid.invaders.splice(i, 1)
+                    projectiles.splice(j, 1)
+                    }
+                  }, 0)  
+                }
+            })
+             
         })
     })
 
