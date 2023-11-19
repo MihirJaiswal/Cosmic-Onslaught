@@ -254,6 +254,18 @@ function animate() {
                     if(invaderFound && projectileFound){
                     grid.invaders.splice(i, 1)
                     projectiles.splice(j, 1)
+
+                    if(grid.invaders.length > 0) {
+                        const firstInvader = grid.invaders[0]
+                        const lastInvader = grid.invaders[grid.
+                        invaders.length - 1]
+
+                        grid.width = 
+                         lastInvader.position.x -
+                         firstInvader.position.x +
+                          lastInvader.width
+                         grid.position.x = firstInvader.position.x
+                    }
                     }
                   }, 0)  
                 }
