@@ -2,8 +2,8 @@ const scoreEL = document.querySelector('#score')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = innerWidth 
-canvas.height = innerHeight 
+canvas.width = 1200
+canvas.height = 600
 
 
 //player creation
