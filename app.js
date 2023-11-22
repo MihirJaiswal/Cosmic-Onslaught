@@ -21,6 +21,7 @@ class Player {
         const image = new Image()
         image.src = 'assests/spaceShip.png'
         image.onload = () => {
+            audio.backgroundMusic.play()
             const scale = 0.12
             this.image = image
             this.width = image.width * scale
@@ -189,6 +190,7 @@ class Invader {
     }
 
     shoot(invaderProjectiles) {
+        audio.enemyShoot.play()
         invaderProjectiles.push(
             new InvaderProjectile({
             position: {
@@ -368,6 +370,7 @@ function animate() {
                         color: 'orange',
                         fades: true
                     })
+                    audio.bomb.play()
                 }
     })
 
@@ -421,6 +424,7 @@ function animate() {
                             color: '#989898',
                             fades: true
                         })
+                    audio.explode.play()
                     grid.invaders.splice(i, 1)
                     projectiles.splice(j, 1)
 
@@ -486,7 +490,9 @@ addEventListener('keydown', ({key}) => {
             keys.ArrowRight.pressed = true
             break
         case ' ':
-            console.log('space')
+            keys.space.pressed= true
+            audio.shoot.play() 
+            
             projectiles.push(new Projectile({
                 position:{
                     x: player.position.x + player.width/2,
