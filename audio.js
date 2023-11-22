@@ -11,7 +11,7 @@ const audio = {
     src: 'assests/explode.wav'
   }),
   gameOver: new Howl({
-    src: './audio/gameOver.mp3'
+    src: 'assests/gameOver.mp3'
   }),
   bomb: new Howl({
     src: 'assests/bomb.mp3'

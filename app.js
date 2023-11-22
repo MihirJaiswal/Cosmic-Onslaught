@@ -320,6 +320,30 @@ function createParticles({object, color, fades}) {
     }
 }
 
+function endGame() {
+    console.log('you lose')
+    audio.gameOver.play()
+  
+    // Makes player disappear
+    setTimeout(() => {
+      player.opacity = 0
+      game.over = true
+    }, 0)
+  
+    // stops game altogether
+    setTimeout(() => {
+      game.active = false
+      document.querySelector('#restartScreen').style.display = 'flex'
+      document.querySelector('#finalScore').innerHTML = score
+    }, 2000)
+  
+    createParticles({
+      object: player,
+      color: 'white',
+      fades: true
+    })
+  }
+
 //animation loop taki image baar baar draw ho 
 function animate() {
     if(!game.active) return
@@ -357,8 +381,7 @@ function animate() {
                 player.width) {
                     setTimeout(() => {
                         invaderProjectiles.splice(index, 1)
-                        player.opacity = 0
-                        game.over = true
+                        endGame()
                     },0)
 
                     setTimeout(() => {
