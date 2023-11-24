@@ -15,7 +15,7 @@ Welcome to Cosmic Onslaught, a classic space invader game brought to life with H
 
 ![Cosmic Onslaught Demo](demo.gif)
 
-[Play the game now!](link-to-live-demo)
+[Play the game now!](https://mihirjaiswal.github.io/Cosmic-Onslaught/)
 
 ## Features
 
