@@ -29,9 +29,6 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(assests/bg.jpg);
-    background-size: cover;
-    background-color: #eee;
    /* height: 100vh;  Set the height of the container to the full viewport height */
 }
 
