@@ -29,5 +29,8 @@ Welcome to Cosmic Onslaught, a classic space invader game brought to life with H
 - Use Arrow keys to move the ship.
 - Use Space key to shoot the invaders.
 
+![github](https://github.com/MihirJaiswal/Cosmic-Onslaught/assets/137146214/2d2f88b3-018c-4283-8f06-7da2bec08ca1)
+
+
 
 
