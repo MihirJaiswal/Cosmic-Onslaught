@@ -1,10 +1,12 @@
 const scoreEL = document.querySelector('#score')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+const bn = document.querySelector('#btn')
+const startsc = document.querySelector('.startScreen')
 
 canvas.width = 1200
 canvas.height = 600
-
+   
 
 //player creation
 class Player {
@@ -189,6 +191,7 @@ class Invader {
         }
     }
 
+    
     shoot(invaderProjectiles) {
         audio.enemyShoot.play()
         invaderProjectiles.push(
@@ -498,7 +501,16 @@ function animate() {
     frames++
 }
 
-animate()
+document.getElementById("btn").addEventListener('click', function(event) {
+    audio.start.play()
+    btn.style.display = "none"
+    startsc.style.display = "none"
+   
+    event.preventDefault();
+    animate();
+})
+
+
 
 addEventListener('keydown', ({key}) => {
 
@@ -513,6 +525,7 @@ addEventListener('keydown', ({key}) => {
             keys.ArrowRight.pressed = true
             break
         case ' ':
+            event.preventDefault();
             keys.space.pressed= true
             audio.shoot.play() 
             
@@ -528,6 +541,7 @@ addEventListener('keydown', ({key}) => {
             }))
             break
     }
+
 
 })
 

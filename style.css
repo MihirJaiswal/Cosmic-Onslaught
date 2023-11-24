@@ -3,7 +3,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: url(assests/bg.jpg);
+    background-size: cover;
 }
 
 div{
@@ -21,6 +22,36 @@ p{
     font-size: 16px;
     padding: 5px;
 
+}
+
+.startScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(assests/bg.jpg);
+    background-size: cover;
+    background-color: #eee;
+   /* height: 100vh;  Set the height of the container to the full viewport height */
+}
+
+/* Style the button */
+#btn {
+    display: inline-block; /* Use inline-block to make the button take only as much width as necessary */
+    padding: 15px;
+    font-size: 1.5em; /* Use relative units for better scalability */
+    text-align: center;
+    text-decoration: none; /* Remove underlines from links */
+    background-color: #34db47; /* Add a background color */
+    color: #fff; /* Set text color to white */
+    border: 2px solid #12892a; /* Add a border */
+    border-radius: 5px; /* Add some border-radius for a rounded look */
+    transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect */
+}
+
+#btn:hover {
+    background-color: #30b929; /* Change background color on hover */
+    color: #eee; /* Change text color on hover */
 }
 
 #restartScreen{

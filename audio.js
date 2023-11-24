@@ -20,6 +20,6 @@ const audio = {
     src: 'assests/shoot.wav'
   }),
   start: new Howl({
-    src: './audio/start.mp3'
+    src: 'assests/start.mp3'
   })
 }
