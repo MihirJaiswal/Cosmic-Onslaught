@@ -24,3 +24,10 @@ Welcome to Cosmic Onslaught, a classic space invader game brought to life with H
 - Score tracking to keep track of your conquest against the invaders.
 - Sound effects for an immersive gaming experience.
 
+## How to Play
+
+- Use Arrow keys to move the ship.
+- Use Space key to shoot the invaders.
+
+
+
