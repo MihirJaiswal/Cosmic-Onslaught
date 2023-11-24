@@ -3,6 +3,8 @@ const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const bn = document.querySelector('#btn')
 const startsc = document.querySelector('.startScreen')
+const restartBtn = document.querySelector('#restartBtn')
+const restartScreen = document.querySelector('#restartScreen')
 
 canvas.width = 1200
 canvas.height = 600
@@ -257,13 +259,13 @@ class Grid {
     }
 }
 
-const player = new Player()
-const projectiles = []
-const grids = []
-const invaderProjectiles = []
-const particles = []
+let player = new Player()
+let projectiles = []
+let grids = []
+let invaderProjectiles = []
+let particles = []
 
-const keys = {
+let keys = {
     ArrowLeft:{
         pressed: false
     },
@@ -505,11 +507,11 @@ document.getElementById("btn").addEventListener('click', function(event) {
     audio.start.play()
     btn.style.display = "none"
     startsc.style.display = "none"
+    
    
     event.preventDefault();
     animate();
 })
-
 
 
 addEventListener('keydown', ({key}) => {
@@ -560,4 +562,57 @@ addEventListener('keyup', ({key}) => {
             break
     }
 
+})
+
+restartBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    player = new Player()
+    projectiles = []
+    grids = []
+    invaderProjectiles = []
+    particles = []
+    bombs = []
+    powerUps = []
+  
+    keys = {
+        ArrowLeft: {
+            pressed: false
+        },
+        ArrowRight: {
+            pressed: false
+        },
+        space: {
+            pressed: false
+        }
+    };
+  
+    frames = 0
+    randomInterval = Math.floor(Math.random() * 500 + 500)
+    game = {
+      over: false,
+      active: true
+    }
+    score = 0
+    document.querySelector('#finalScore').innerHTML = score
+    document.querySelector('#score').innerHTML = score
+  
+    for (let i = 0; i < 100; i++) {
+      particles.push(
+        new Particle({
+          position: {
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height
+          },
+          velocity: {
+            x: 0,
+            y: 0.3
+          },
+          radius: Math.random() * 2,
+          color: 'white'
+        })
+      )
+    }
+    restartScreen.style.display = "none"
+    animate()
+    
 })

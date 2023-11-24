@@ -73,3 +73,24 @@ p{
           align-items: center;
           justify-content: center;
 }
+
+#restartBtn{
+    padding: 15px;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none; 
+    background-color: #156bdc; 
+    color: #fff; 
+    border: 2px solid #0d4985;
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
+    font-weight: 500;
+}
+
+#restartBtn:hover {
+    background-color: #114ba7;
+    color: #eee; 
+    transform: scale(1.03);
+}
